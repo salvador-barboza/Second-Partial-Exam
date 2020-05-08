@@ -28,7 +28,7 @@ module.exports = {
       return true
     })
   },
-  deletesSport: function (id) {
+  deleteSport: function (id) {
     return collection.deleteOne({ id })
   },
   addTestData: function() {

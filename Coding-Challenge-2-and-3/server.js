@@ -3,7 +3,7 @@ const bodyParser = require( 'body-parser' );
 const mongoose = require( 'mongoose' );
 const jsonParser = bodyParser.json();
 const { DATABASE_URL, PORT } = require( './config' );
-const { deletesSport, sportExists, addTestData } = require('./models/sport-model')
+const { deleteSport, sportExists, addTestData } = require('./models/sport-model')
 
 const app = express();
 app.use(jsonParser)
@@ -25,7 +25,7 @@ app.delete('/sports/delete', (req, res) => {
 
     sportExists(id).then(exists => {
         if (exists) {
-            return deletesSport(id).then(() => {
+            return deleteSport(id).then(() => {
                 return res.sendStatus(204)
             })
         } else {
@@ -50,6 +50,7 @@ app.listen( PORT, () => {
                 return reject( err );
             }
             else{
+                // addTestData()
                 return resolve();
             }
         })
