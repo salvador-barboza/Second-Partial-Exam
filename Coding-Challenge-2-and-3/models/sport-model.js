@@ -37,6 +37,6 @@ module.exports = {
       id: uuid.v4(),
       name: 'Team',
       num_players: 5,
-    }).then(() => console.log('done'))
+    }).then((createdItem) => console.log(createdItem))
   }
 };
